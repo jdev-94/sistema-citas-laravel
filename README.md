@@ -18,7 +18,7 @@ La aplicación permite a los usuarios registrarse, iniciar sesión de forma segu
 
 ## 🛠️ Stack Tecnológico
 
-- **Backend:** Laravel 11 (PHP)
+- **Backend:** Laravel 12 (PHP)
 - **Frontend:** Blade Templates, Tailwind CSS, Vite
 - **Autenticación:** Laravel Breeze
 - **Base de Datos:** SQLite / Eloquent ORM
@@ -45,26 +45,26 @@ Sigue estos pasos para levantar el entorno de desarrollo en tu máquina local:
    cd nombre-del-proyecto
 
 2. **Instalar dependencias de PHP (Composer):**
-    '``bash
+    ```bash
     composer install
 
 3. **Instalar dependencias de Frontend (NPM):**
-    '``bash
+    ```bash
     npm install
 
 4. **Configurar el entorno:**
-    '``bash
+    ```bash
     Copia el archivo de ejemplo y genera la clave de la aplicación:
     cp .env.example .env
     php artisan key:generate
 
 5. **Preparar la Base de Datos:**
-    '``bash
-    Crea el archivo de SQLite (si usas la configuración por defecto de Laravel 11), ejecuta las migraciones para crear las tablas y corre los seeders para poblar el catálogo de servicios:
+    ```bash
+    Crea el archivo de SQLite (si usas la configuración por defecto de Laravel 12), ejecuta las migraciones para crear las tablas y corre los seeders para poblar el catálogo de servicios:
     php artisan migrate --seed
 
 6. **Inicia los servidores de desarrollo:**
-    '``bash
+    ```bash
     En una terminal ejecuta el servidor de Laravel: php artisan serve
     En otra terminal de fondo, ejecuta Vite para compilar los assets y estilos en tiempo real:: npm run dev
 
