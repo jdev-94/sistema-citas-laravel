@@ -22,7 +22,7 @@ return new class extends Migration
             $table->time('appointment_time');
 
             //Estado de la cita con un valor por defecto
-            $table->string('status')->default('scheduled');
+            $table->string('status')->default('pendiente');
             $table->timestamps();
         });
     }

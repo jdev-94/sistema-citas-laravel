@@ -55,7 +55,7 @@ class AppointmentController extends Controller
                 'service_id' => $validated['service_id'],
                 'appointment_date' => $validated['appointment_date'],
                 'appointment_time' => $validated['appointment_time'],
-                'status' => 'sheduled',
+                'status' => 'pendiente',
             ]
         );
 

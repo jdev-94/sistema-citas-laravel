@@ -45,6 +45,7 @@ Sigue estos pasos para levantar el entorno de desarrollo en tu máquina local:
    cd nombre-del-proyecto
 
 2. **Instalar dependencias de PHP (Composer):**
+<<<<<<< HEAD
     ```bash
     composer install
 
@@ -54,17 +55,32 @@ Sigue estos pasos para levantar el entorno de desarrollo en tu máquina local:
 
 4. **Configurar el entorno:**
     ```bash
+=======
+    composer install
+
+3. **Instalar dependencias de Frontend (NPM):**
+    npm install
+
+4. **Configurar el entorno:**
+>>>>>>> 6ea5366 (Correción de estado del servicio)
     Copia el archivo de ejemplo y genera la clave de la aplicación:
     cp .env.example .env
     php artisan key:generate
 
 5. **Preparar la Base de Datos:**
+<<<<<<< HEAD
     ```bash
     Crea el archivo de SQLite (si usas la configuración por defecto de Laravel 12), ejecuta las migraciones para crear las tablas y corre los seeders para poblar el catálogo de servicios:
     php artisan migrate --seed
 
 6. **Inicia los servidores de desarrollo:**
     ```bash
+=======
+    Crea el archivo de SQLite (si usas la configuración por defecto de Laravel 11), ejecuta las migraciones para crear las tablas y corre los seeders para poblar el catálogo de servicios:
+    php artisan migrate --seed
+
+6. **Inicia los servidores de desarrollo:**
+>>>>>>> 6ea5366 (Correción de estado del servicio)
     En una terminal ejecuta el servidor de Laravel: php artisan serve
     En otra terminal de fondo, ejecuta Vite para compilar los assets y estilos en tiempo real:: npm run dev
 
