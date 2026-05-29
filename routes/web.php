@@ -24,9 +24,8 @@ Route::middleware('auth')->group(function () {
     Route::controller(AppointmentController::class)->group(function () {
         Route::get('/appointments/create', 'create')->name('appointments.create');
         Route::post('/appointments', 'store')->name('appointments.store');
+        Route::patch('/appointments/{appointment}/status', 'updateStatus')->name('appointments.updateStatus');
     });
 });
-
-
 
 require __DIR__ . '/auth.php';

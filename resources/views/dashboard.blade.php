@@ -52,10 +52,38 @@
                                             hs</td>
                                         <td class="py-3">${{ $appointment->service->price }}</td>
                                         <td class="py-3">
-                                            <span
-                                                class="px-2 py-1 text-xs font-bold rounded-full bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">
-                                                {{ ucfirst($appointment->status) }}
-                                            </span>
+                                            <form action="{{ route('appointments.updateStatus', $appointment->id) }}"
+                                                method="POST" class="flex items-center space-x-2">
+                                                @csrf
+                                                @method('PATCH')
+
+                                                <select name="status"
+                                                    class="text-xs font-bold rounded-lg px-2 py-1 border border-gray-300 dark:border-gray-600 bg-transparent focus:ring-2 focus:ring-indigo-500
+                                                    {{ $appointment->status === 'pendiente' ? 'text-yellow-600 dark:text-yellow-400' : '' }}
+                                                    {{ $appointment->status === 'finalizada' ? 'text-green-600 dark:text-green-400' : '' }}
+                                                    {{ $appointment->status === 'rechazada' ? 'text-red-600 dark:text-red-400' : '' }}">
+
+                                                    <option value="pendiente"
+                                                        {{ $appointment->status === 'pendiente' ? 'selected' : '' }}>
+                                                        Pendiente</option>
+                                                    <option value="finalizada"
+                                                        {{ $appointment->status === 'finalizada' ? 'selected' : '' }}>
+                                                        Finalizada</option>
+                                                    <option value="rechazada"
+                                                        {{ $appointment->status === 'rechazada' ? 'selected' : '' }}>
+                                                        Rechazada</option>
+                                                </select>
+
+                                                <button type="submit"
+                                                    class="bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 p-1 rounded-md transition title='Guardar estado'">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4"
+                                                        fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                                        stroke-width="2">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M5 13l4 4L19 7" />
+                                                    </svg>
+                                                </button>
+                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach

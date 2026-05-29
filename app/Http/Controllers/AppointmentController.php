@@ -61,4 +61,20 @@ class AppointmentController extends Controller
 
         return redirect()->route('dashboard')->with('success', '¡Tu cita ha sido reservada con éxito!');
     }
+
+    public function updateStatus(Request $request, Appointment $appointment)
+    {
+        //Validar que solo se aceptan los estados correctos
+        $validated = $request->validate([
+            'status' => 'required|in:pendiente,finalizada,rechazada',
+        ]);
+
+        //Actualizar el estado en la BD
+        $appointment->update([
+            'status' => $validated['status']
+        ]);
+
+        //Redireccionar hacia atrás con el mensaje de sesión
+        return back()->with('success', 'El estado de la cita se actualizó correctamente.');
+    }
 }
